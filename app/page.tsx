@@ -9,14 +9,15 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Home as HomeIcon, FileText, Star, User } from "lucide-react";
+import { Home as HomeIcon, FileText, Star, User, Sparkles } from "lucide-react";
 import { cn } from "./lib/utils";
 import HomeScreen from "./components/HomeScreen";
 import BookingForm from "./components/BookingForm";
 import MyOrders from "./components/MyOrders";
-import LoginScreen from "./components/LoginScreen";
+import LoginScreen, { UserData } from "./components/LoginScreen";
 import AdminDashboard from "./components/AdminDashboard";
 import ThemeToggle from "./components/ThemeToggle";
+import ProfileView from "./components/ProfileView";
 
 type View = "home" | "book" | "orders" | "offers" | "profile";
 
@@ -42,6 +43,7 @@ export default function Home() {
   const router = useRouter();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [userRole, setUserRole] = useState<"customer" | "admin" | "employee" | null>(null);
+  const [userData, setUserData] = useState<UserData | null>(null);
   const [view, setView] = useState<View>("home");
   const [selectedService, setSelectedService] = useState<string>("Ironing");
 
@@ -51,10 +53,12 @@ export default function Home() {
    *
    * @param role The role of the logged-in user.
    * @param isNewUser Indicates if this is a first-time signup.
+   * @param data User data from login (phone or google details)
    */
-  const handleLoginSuccess = (role: "customer" | "admin" | "employee", isNewUser: boolean) => {
+  const handleLoginSuccess = (role: "customer" | "admin" | "employee", isNewUser: boolean, data: UserData) => {
     setIsAuthenticated(true);
     setUserRole(role);
+    setUserData(data);
     
     if (role === "admin" || role === "employee") {
       localStorage.setItem("userRole", role);
@@ -149,10 +153,19 @@ export default function Home() {
 
               {view === "orders" && <MyOrders onBack={() => setView("home")} />}
 
-              {(view === "offers" || view === "profile") && (
-                <div className="p-6 text-center text-black dark:text-white mt-10 transition-colors">
-                  <h2 className="text-xl font-bold">Coming Soon</h2>
-                  <p className="mt-2 text-[#8E94A3]">This feature is under development.</p>
+              {view === "profile" && (
+                <ProfileView userData={userData} />
+              )}
+              
+              {view === "offers" && (
+                <div className="flex flex-col items-center justify-center py-20 px-4 text-center h-[50vh]">
+                  <div className="w-16 h-16 bg-[#FF6B00]/10 rounded-full flex items-center justify-center mb-4">
+                    <Sparkles className="w-8 h-8 text-[#FF6B00]" />
+                  </div>
+                  <h3 className="text-xl font-bold mb-2">Coming Soon!</h3>
+                  <p className="text-[#8E94A3] text-sm max-w-xs mx-auto">
+                    We're working hard to bring you exciting new features. Stay tuned!
+                  </p>
                 </div>
               )}
             </motion.div>

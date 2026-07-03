@@ -22,3 +22,31 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ error: "Unexpected error in /api/customer" }, { status: 500 });
   }
 }
+
+// PUT /api/customer
+export async function PUT(req: NextRequest) {
+  try {
+    const body = await req.json();
+    
+    // We require a phone number as primary key
+    if (!body.phone) {
+      return NextResponse.json({ error: "Phone number is required" }, { status: 400 });
+    }
+
+    const customerData = {
+      phone: body.phone,
+      phone_number: body.phone, // fallback naming convention used in db
+      customer_name: body.name,
+      email: body.email,
+      society_name: body.society,
+      block: body.block,
+      flat_number: body.flat,
+    };
+
+    const updated = db.upsertCustomer(customerData);
+    return NextResponse.json({ success: true, customer: updated });
+  } catch (err) {
+    console.error("Customer PUT API error:", err);
+    return NextResponse.json({ error: "Failed to update profile" }, { status: 500 });
+  }
+}

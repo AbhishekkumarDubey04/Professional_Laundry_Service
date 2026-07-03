@@ -70,11 +70,12 @@
       "pickup_date": "2026-07-03",
       "pickup_slot": "Walk-in",
       "notes": null,
-      "status": "PICKED",
+      "status": "READY",
       "self_drop": false,
       "block": "A",
       "id": "1783084670575",
-      "created_at": "2026-07-03T13:17:50.575Z"
+      "created_at": "2026-07-03T13:17:50.575Z",
+      "ready_at": "2026-07-03T13:40:13.187Z"
     }
   ],
   "customers": [
@@ -142,24 +143,6 @@
       "name": "Folding",
       "price": 1,
       "icon": "📁"
-    },
-    {
-      "name": "Premium Wash",
-      "price": 15,
-      "icon": "🌟",
-      "id": "1783084299890"
-    },
-    {
-      "name": "Premium Wash",
-      "price": 15,
-      "icon": "🌟",
-      "id": "1783084579591"
-    },
-    {
-      "name": "Premium Wash",
-      "price": 15,
-      "icon": "🌟",
-      "id": "1783084670262"
     }
   ]
 }

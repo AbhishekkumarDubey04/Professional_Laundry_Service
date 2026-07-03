@@ -4,8 +4,12 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Phone, ArrowRight, ShieldCheck, Star, Sparkles } from "lucide-react";
 
+export type UserData = 
+  | { type: "phone"; phone: string }
+  | { type: "google"; email: string; name: string };
+
 interface LoginScreenProps {
-  onLoginSuccess: (role: "customer" | "admin" | "employee", isNewUser: boolean) => void;
+  onLoginSuccess: (role: "customer" | "admin" | "employee", isNewUser: boolean, userData: UserData) => void;
 }
 
 export default function LoginScreen({ onLoginSuccess }: LoginScreenProps) {
@@ -27,7 +31,7 @@ export default function LoginScreen({ onLoginSuccess }: LoginScreenProps) {
     setIsLoading(true);
     setTimeout(() => {
       setIsLoading(false);
-      onLoginSuccess("customer", false);
+      onLoginSuccess("customer", false, { type: "google", email: "user@gmail.com", name: "Google User" });
     }, 1500);
   };
 
@@ -41,7 +45,7 @@ export default function LoginScreen({ onLoginSuccess }: LoginScreenProps) {
       else if (mobile === "8888888888") role = "employee";
       
       const isNewUser = !mobile.endsWith("00");
-      onLoginSuccess(role, isNewUser);
+      onLoginSuccess(role, isNewUser, { type: "phone", phone: mobile });
     }, 800);
   };
 

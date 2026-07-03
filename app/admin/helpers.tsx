@@ -25,7 +25,7 @@ export function StatusBadge({ status }: { status: OrderStatus }) {
     <span
       style={{
         display: "inline-block",
-        padding: "2px 8px",
+        padding: "8px 8px",
         borderRadius: 999,
         fontSize: 10,
         fontWeight: 700,
