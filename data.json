@@ -1,0 +1,165 @@
+{
+  "orders": [
+    {
+      "id": "1025",
+      "created_at": "2026-07-03T10:00:00.000Z",
+      "customer_name": "Arun",
+      "phone": "9876543210",
+      "society_name": "Sunrise Apartments",
+      "flat_number": "A101",
+      "block": "A",
+      "pickup_date": "2026-07-03",
+      "pickup_slot": "9:00 AM – 11:00 AM",
+      "express_delivery": false,
+      "self_drop": false,
+      "notes": "Test order",
+      "status": "DELIVERED",
+      "items_json": {
+        "men_shirt_kurta_tshirt": 2,
+        "men_trouser_jeans_shorts_pyjama": 1,
+        "home_pillow_small_towel": 1
+      },
+      "total_price": 35,
+      "base_amount": 35,
+      "ready_at": "2026-07-03T13:01:06.933Z",
+      "delivered_at": "2026-07-03T13:01:25.546Z"
+    },
+    {
+      "customer_name": "4554",
+      "phone": "7654338717",
+      "society_name": "Green Valley",
+      "flat_number": "4554",
+      "pickup_date": "2026-07-03",
+      "pickup_slot": "Self drop",
+      "notes": "2 shirts ",
+      "status": "DELIVERED",
+      "self_drop": true,
+      "block": "B",
+      "id": "1783081890167",
+      "created_at": "2026-07-03T12:31:30.167Z",
+      "ready_at": "2026-07-03T13:00:53.715Z",
+      "delivered_at": "2026-07-03T13:02:51.740Z"
+    },
+    {
+      "customer_name": "John Doe Test",
+      "phone": "9876543211",
+      "society_name": "Prestige Lakeside",
+      "flat_number": "404",
+      "block": "B",
+      "pickup_date": "2026-07-03",
+      "pickup_slot": "9:00 AM – 11:00 AM",
+      "express_delivery": true,
+      "self_drop": false,
+      "notes": "Test order from customer API",
+      "status": "DELIVERED",
+      "id": "1783084670549",
+      "created_at": "2026-07-03T13:17:50.549Z",
+      "picked_at": "2026-07-03T13:17:50.596Z",
+      "total_price": 150,
+      "items_json": {
+        "home_bedsheet_double": 1
+      },
+      "ready_at": "2026-07-03T13:17:50.649Z",
+      "delivered_at": "2026-07-03T13:17:50.672Z"
+    },
+    {
+      "customer_name": "Jane Walkin Test",
+      "phone": "9876543212",
+      "society_name": "Prestige Lakeside",
+      "flat_number": "101",
+      "pickup_date": "2026-07-03",
+      "pickup_slot": "Walk-in",
+      "notes": null,
+      "status": "PICKED",
+      "self_drop": false,
+      "block": "A",
+      "id": "1783084670575",
+      "created_at": "2026-07-03T13:17:50.575Z"
+    }
+  ],
+  "customers": [
+    {
+      "customer_name": "Jane Walkin Test",
+      "phone": "9876543212",
+      "society_name": "Prestige Lakeside",
+      "flat_number": "101",
+      "block": "A"
+    },
+    {
+      "name": "John Doe Test",
+      "phone_number": "9876543211",
+      "society": "Prestige Lakeside",
+      "block": "B",
+      "flat_number": "404"
+    }
+  ],
+  "societies": [
+    {
+      "id": 1,
+      "name": "Sunrise Apartments",
+      "has_blocks": true,
+      "is_active": true
+    },
+    {
+      "id": 2,
+      "name": "Green Valley",
+      "has_blocks": false,
+      "is_active": true
+    },
+    {
+      "id": 3,
+      "name": "Silver Oaks",
+      "has_blocks": true,
+      "is_active": true
+    },
+    {
+      "name": "Prestige Lakeside",
+      "created_at": "2026-07-03T13:11:39.797Z",
+      "id": 1783084299798
+    }
+  ],
+  "services": [
+    {
+      "id": "1",
+      "name": "Ironing",
+      "price": 2,
+      "icon": "👕"
+    },
+    {
+      "id": "2",
+      "name": "Washing",
+      "price": 3,
+      "icon": "💧"
+    },
+    {
+      "id": "3",
+      "name": "Dry Cleaning",
+      "price": 5,
+      "icon": "🌬️"
+    },
+    {
+      "id": "4",
+      "name": "Folding",
+      "price": 1,
+      "icon": "📁"
+    },
+    {
+      "name": "Premium Wash",
+      "price": 15,
+      "icon": "🌟",
+      "id": "1783084299890"
+    },
+    {
+      "name": "Premium Wash",
+      "price": 15,
+      "icon": "🌟",
+      "id": "1783084579591"
+    },
+    {
+      "name": "Premium Wash",
+      "price": 15,
+      "icon": "🌟",
+      "id": "1783084670262"
+    }
+  ]
+}
